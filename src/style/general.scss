@@ -1,0 +1,18 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+$coloreChiaro:#2e3a46;
+$coloreScuro:#1e2d3b;
+
