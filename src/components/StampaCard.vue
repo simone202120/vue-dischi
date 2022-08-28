@@ -10,24 +10,26 @@
 </template>
 
 <script>
-export default {
-    name:'StampaCard',
-    props:{
-        details:Object
+    
+    export default {
+        name:'StampaCard',
+        props:{
+            details:Object
+        }
     }
-}
 </script>
 
 <style lang="scss" scoped>
-     @import '../style/general.scss';
 
-     img{
-      width: 100%;
+    @import '../style/general.scss';
+
+    img{
+     width: 100%;
     }
     .cardDisco{
         text-align: center;
-        width: calc(85% / 5);
-        margin: 10px;
+        width: calc(90% / 5);
+        margin:10px 0;
         background-color: $coloreChiaro;
         padding: 15px;
 
@@ -36,11 +38,13 @@ export default {
             text-transform: uppercase;
             margin-top: 10px;
         }
+
         .author{
             color:#707a7e;
             margin-top:20px;
             font-size: 16px;
-        }
+            }
+
         .anno{
             color: #707a7e;
             font-size: 13px;

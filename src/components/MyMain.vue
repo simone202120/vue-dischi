@@ -2,36 +2,41 @@
   <main>
         <div class="container">
             <StampaCard v-for="(copertina, index) in arrayCopertine" :key='index' :details="copertina"/> 
+            <Loadingprogress v-if="loading" />
         </div>
+        
   </main>
 </template>
 
 <script>
-import axios from 'axios';
-import StampaCard from './StampaCard.vue';
+    import axios from 'axios';
+    import StampaCard from './StampaCard.vue';
+    import Loadingprogress from './Loadingprogress.vue';
 
 
-export default {
-    name:'MyMain',
+    export default {
+        name:'MyMain',
 
-    components: {
-    StampaCard,
+        components: {
+            StampaCard,
+            Loadingprogress,
+        },
     
-},
-   
-    
-    data(){
-        return{
-            arrayCopertine:[]
+        
+        data(){
+            return{
+                arrayCopertine:[],
+                loading: true,
+            }
+        },
+        created(){
+            axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+            .then(risposta =>{
+                this.arrayCopertine=risposta.data.response;
+                this.loading=false;
+            })
         }
-    },
-    created(){
-        axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-        .then(risposta =>{
-            this.arrayCopertine=risposta.data.response
-        })
     }
-}
 </script>
     
 <style lang="scss" scoped>
