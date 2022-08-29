@@ -3,6 +3,7 @@
         <div class="container">
             <StampaCard v-for="(copertina, index) in arrayCopertine" :key='index' :details="copertina"/> 
             <Loadingprogress v-if="loading" />
+            <button @click="listaGeneri">via</button>
         </div>
         
   </main>
@@ -36,15 +37,15 @@
                 this.arrayCopertine=risposta.data.response;
                 this.loading=false;
             })
-            this.listaGeneri()
-           
         },
+
         methods:{
             listaGeneri(){
-                this.arrayCopertine.forEach(generi=>{
-                    let tipo= generi.genere
-                    this.arrayGeneri.push(tipo)
-                })
+                this.arrayCopertine.forEach((generi)=>{
+                let tipo=''
+                tipo= generi.genere
+                this.arrayGeneri.push(tipo)
+            })
             }
         },
     }
