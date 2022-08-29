@@ -11,7 +11,7 @@
 <script>
     import axios from 'axios';
     import StampaCard from './StampaCard.vue';
-    import Loadingprogress from './Loadingprogress.vue';
+    import Loadingprogress from './Loadingprogress.vue'
 
 
     export default {
@@ -27,6 +27,7 @@
             return{
                 arrayCopertine:[],
                 loading: true,
+                arrayGeneri:[]
             }
         },
         created(){
@@ -35,7 +36,16 @@
                 this.arrayCopertine=risposta.data.response;
                 this.loading=false;
             })
-        }
+           
+        },
+        methods:{
+            listaGeneri(){
+                this.arrayGeneri.forEach(generi=>{
+                    let tipo= generi.genere
+                    this.arrayGeneri.push(tipo)
+                })
+            }
+        },
     }
 </script>
     
