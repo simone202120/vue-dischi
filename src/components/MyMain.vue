@@ -36,11 +36,12 @@
                 this.arrayCopertine=risposta.data.response;
                 this.loading=false;
             })
+            this.listaGeneri()
            
         },
         methods:{
             listaGeneri(){
-                this.arrayGeneri.forEach(generi=>{
+                this.arrayCopertine.forEach(generi=>{
                     let tipo= generi.genere
                     this.arrayGeneri.push(tipo)
                 })
