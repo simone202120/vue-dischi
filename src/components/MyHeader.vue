@@ -5,26 +5,47 @@
     <div class="selezioni"> 
       <label for="cars">Seleziona genere</label>
       <select name="genere" id="genere">
-        <option value="volvo">Volvo</option>
-        <option value="volvo">Volvo</option>
-        <option value="volvo">Volvo</option>
+        <option value="">Tutti</option>
+        <option value="volvo" v-for="(genere, index) in arrayGeneriSingle" :key="index">{{genere}}</option>
       </select>
     </div>
+
   </header>
 </template>
 
 <script>
+import axios from 'axios';
   export default {
     name:'MyHeader',
 
-    data() {
-    return{
-  
-    }
-  },
+    data(){
+        return{
+           arrayGeneri:[],
+           arrayGeneriSingle:[],
+        }
+    },
+    created(){
+      axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+            .then(risposta =>{
+                this.arrayGeneri=risposta.data.response;
+                this.listaGeneri()
+            })
+    },
+    methods:{
+            listaGeneri(){
+                this.arrayGeneri.forEach((generi)=>{
+                let tipo
+                tipo= generi.genre
+                if(!this.arrayGeneriSingle.includes(tipo)){
+                    this.arrayGeneriSingle.push(tipo)
+                }
+            })
+            },
+        },
 
-  
 }
+  
+
 
   
 </script>

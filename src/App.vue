@@ -17,8 +17,9 @@
     components: {
     MyHeader,
     MyMain,
+    },
+    
     }
-  }
 </script>
 
 <style lang="scss">

@@ -27,7 +27,7 @@
             return{
                 arrayCopertine:[],
                 loading: true,
-                arrayGeneri:[]
+                
             }
         },
         created(){
@@ -35,22 +35,8 @@
             .then(risposta =>{
                 this.arrayCopertine=risposta.data.response;
                 this.loading=false;
-                this.listaGeneri()
             });
-        },
-
-       
-
-        methods:{
-            listaGeneri(){
-                this.arrayCopertine.forEach((generi)=>{
-                let tipo
-                tipo= generi.genre
-                if(!this.arrayGeneri.includes(tipo)){
-                    this.arrayGeneri.push(tipo)
-                }
-            })
-            }
+           
         },
     }
 </script>
