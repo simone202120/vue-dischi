@@ -4,9 +4,9 @@
     <img src="../assets/logo2.png" alt="">
     <div class="selezioni"> 
       <label for="cars">Seleziona genere</label>
-      <select name="genere" id="genere">
-        <option value="">Tutti</option>
-        <option value="volvo" v-for="(genere, index) in arrayGeneriSingle" :key="index">{{genere}}</option>
+      <select name="genere" id="genere" @change="$emit('changedGenere', genereSelezionato)" v-model='genereSelezionato'>
+        <option value=""></option>
+        <option v-for="(genere, index) in passaGeneri" :key="index" :value="genere" >{{genere}}</option>
       </select>
     </div>
 
@@ -14,40 +14,19 @@
 </template>
 
 <script>
-import axios from 'axios';
+
   export default {
     name:'MyHeader',
-
+    props:{
+      passaGeneri:Array
+    },
     data(){
-        return{
-           arrayGeneri:[],
-           arrayGeneriSingle:[],
-        }
-    },
-    created(){
-      axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-            .then(risposta =>{
-                this.arrayGeneri=risposta.data.response;
-                this.listaGeneri()
-            })
-    },
-    methods:{
-            listaGeneri(){
-                this.arrayGeneri.forEach((generi)=>{
-                let tipo
-                tipo= generi.genre
-                if(!this.arrayGeneriSingle.includes(tipo)){
-                    this.arrayGeneriSingle.push(tipo)
-                }
-            })
-            },
-        },
+      return{
+        genereSelezionato:""
+      }
+    }
+    }
 
-}
-  
-
-
-  
 </script>
 
 <style lang="scss" scoped>

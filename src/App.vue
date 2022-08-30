@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-    <MyHeader/>
-    <MyMain/>
+    <MyHeader @changedGenere="ricercaPerGenere" :passaGeneri="listaGeneri"/>
+    <MyMain @genresReady="gestioneGeneri" @genereSelezionato= genereSelezionato />
 
   </div>
 </template>
@@ -18,8 +18,23 @@
     MyHeader,
     MyMain,
     },
-    
+
+    data(){
+      return{
+        listaGeneri: [],
+        genereSelezionato:""
+      }
+    },
+    methods:{
+      gestioneGeneri(tuttiGeneri){
+        this.listaGeneri=tuttiGeneri
+        console.log(this.listaGeneri)
+      },
+      ricercaPerGenere(genereSelezionato){
+        this.genereSelezionato=genereSelezionato;
+      }
     }
+  }
 </script>
 
 <style lang="scss">
