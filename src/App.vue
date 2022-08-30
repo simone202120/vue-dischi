@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-    <MyHeader @changedGenere="ricercaPerGenere" :passaGeneri="listaGeneri"/>
-    <MyMain @genresReady="gestioneGeneri" @genereSelezionato= genereSelezionato />
+    <MyHeader @changedGenre="startSearch" :genresList="genresList"/>
+    <MyMain @genresReady='getGenresList' :genreToSearch="genreToSearch"/>
 
   </div>
 </template>
@@ -21,17 +21,17 @@
 
     data(){
       return{
-        listaGeneri: [],
-        genereSelezionato:""
+       genresList:[],
+       genreToSearch:""
       }
     },
     methods:{
-      gestioneGeneri(tuttiGeneri){
-        this.listaGeneri=tuttiGeneri
-        console.log(this.listaGeneri)
+      getGenresList(allGenres){
+        this.genresList=allGenres;
       },
-      ricercaPerGenere(genereSelezionato){
-        this.genereSelezionato=genereSelezionato;
+
+      startSearch(genreToSearch){
+        this.genreToSearch=genreToSearch;
       }
     }
   }

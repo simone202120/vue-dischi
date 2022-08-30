@@ -4,9 +4,9 @@
     <img src="../assets/logo2.png" alt="">
     <div class="selezioni"> 
       <label for="cars">Seleziona genere</label>
-      <select name="genere" id="genere" @change="$emit('changedGenere', genereSelezionato)" v-model='genereSelezionato'>
-        <option value=""></option>
-        <option v-for="(genere, index) in passaGeneri" :key="index" :value="genere" >{{genere}}</option>
+      <select name="genere" id="genere" @change="$emit('changedGenre', SelectedGenre)"  v-model="SelectedGenre">
+        <option value=" "></option>
+        <option v-for="(genre, index) in genresList" :key="index" :value="genre">{{genre}}</option>
       </select>
     </div>
 
@@ -18,14 +18,15 @@
   export default {
     name:'MyHeader',
     props:{
-      passaGeneri:Array
+      genresList:Array
     },
+   
     data(){
       return{
-        genereSelezionato:""
+        SelectedGenre:""
       }
     }
-    }
+  }
 
 </script>
 
