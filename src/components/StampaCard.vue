@@ -28,8 +28,8 @@
     }
     .cardDisco{
         text-align: center;
-        width: calc(90% / 5);
-        margin:10px 0;
+        width: calc(85% / 5);
+        margin:10px 10px;
         background-color: $coloreChiaro;
         padding: 15px;
 

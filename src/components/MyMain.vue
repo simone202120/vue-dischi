@@ -37,7 +37,7 @@
         computed:{
 
             filteredDisc(){
-                if(this.genreToSearch=""){
+                if(this.genreToSearch==""){
                     return this.arrayCopertine;
                 }else{
                     const arrayAlbum= this.arrayCopertine.filter(album=> {
